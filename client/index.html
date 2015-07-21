@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="chat">
+  <head>
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="styles.min.css" />
+    <script src="vendor/socket.io-client/socket.io.js"></script>
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="scripts.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+  </head>
+  <body>
+    <div class="container" data-ng-controller="MainController as ctrl">
+      <form class="chat" data-ng-submit="ctrl.send()">
+        <input type="text" data-ng-model="ctrl.username" placeholder="Username" required />
+        <input type="text" data-ng-model="ctrl.msg" placeholder="Message" required />
+        <input type="submit" class="btn btn-primary" />
+      </form>
+      <h1>Chats: </h1>
+      <ul class="chats">
+        <li data-ng-repeat="chat in chats" data-ng-bind="chat.username + ': ' chat.msg"></li>
+      </ul>
+      
+    </div>
+  </body>
+</html>
